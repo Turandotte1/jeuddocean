@@ -1,0 +1,24 @@
+.Landing {
+    height: 100%;
+    width: 100%;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+    margin-top: 20vh;
+}
+
+.Start-link {
+    list-style-type: none;
+    width: 50%;
+    margin: 30px auto 0px;
+}
+
+.Start-link a {
+    text-decoration: none;
+    color: #ffffff;
+    border: 3px solid #ffffff;
+    padding: 20px 80px;
+    font-size: 50px;
+}
