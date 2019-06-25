@@ -1,0 +1,47 @@
+.App {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background-color: #1e1d6b;
+}
+
+.App-header {
+    background-color: #1e1d6b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+#mainScreen {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.close-button {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    color: #ffffff;
+}
+
+.close-button-phase3 {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    color: #1e1d6b;
+}
+
+.left {
+    background-color: white;
+    width: 70%;
+    height: 100%;
+}
+
+.left-phase3 {
+    width: 100%;
+}

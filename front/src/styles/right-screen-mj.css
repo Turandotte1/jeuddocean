@@ -1,0 +1,124 @@
+.right {
+    background-color: #1e1d6b;
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 90px 30px;
+}
+
+.timer-wrapper {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.elapsed-time {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 900;
+    padding-bottom: 40px;
+
+
+}
+
+.buttons button {
+    background-color: transparent;
+    border: none;
+}
+
+.buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-wrapper button {
+    margin-bottom: 10px;
+}
+
+.rose-button {
+    text-transform: uppercase;
+    background-color: #ff6f72;
+    border: none;
+    width: 50%;
+    margin: 0 auto;
+    padding: 10px 10px;
+    color: #ffffff;
+    font-weight: 900;
+}
+
+.grid-wrapper {
+
+}
+
+.grid-mj {
+    width: 270px;
+    height: 275px;
+    display: grid;
+    margin: 0 auto;
+    grid-column-gap: 0;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.grid-mj > div:not(.island) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px #1e1d6b solid;
+    height: 45px;
+    width: 45px;
+    color: #ffffff;
+    border-right: 1px #1e1d6b solid;
+}
+
+.item19 {
+    grid-row: 4 / 6;
+    grid-row-gap: 0;
+    border-left: 1px #1e1d6b solid;
+    border-right: 1px #1e1d6b solid;
+
+}
+
+.item30 {
+    grid-column: 1 / 4;
+    border-left: 1px #1e1d6b solid;
+    border-bottom: 1px #1e1d6b solid;
+    border-right: 1px #1e1d6b solid;
+}
+
+.item25, .item26 {
+    border-bottom: 1px #1e1d6b solid;
+}
+
+.item1,
+.item2,
+.item3,
+.item4,
+.item5,
+.item6 {
+    border-top: 1px #1e1d6b solid;
+    border-bottom: 1px #1e1d6b solid;
+    grid-column-gap: 0;
+}
+
+.item1,
+.item7,
+.item13 {
+    border-left: 1px #1e1d6b solid;
+}
+
+.item20,
+.item26 {
+    border-right: 1px #1e1d6b solid;
+}
+
+.item6,
+.item12,
+.item18,
+.item20,
+.item24
+.item26 {
+    border-right: 1px #1e1d6b solid;
+}

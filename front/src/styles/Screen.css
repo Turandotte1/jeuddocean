@@ -1,0 +1,142 @@
+.screen-component {
+     display: flex;
+     height: 100%;
+}
+
+.left-screen {
+    display: flex;
+    align-items: center;
+    background-color: #1e1d6b;
+    width: 70%;
+    height: 100%;
+}
+
+.wrapper {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: 200px 1fr 200px;
+    width: 90%;
+    margin: 0 auto;
+    perspective: 1800px;
+}
+
+.plateau {
+    z-index: -1;
+    background-color: #1f4099;
+    padding: 20px;
+    position: absolute;
+    left: 250px;
+    top: -70px;
+    transform: scaleX(1.5) scaleY(1.2) rotateX(45deg) rotateZ(45deg);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.plateau-grille {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.cotes {
+    transform: rotateX(32deg) rotateZ(0deg) scaleX(1.1) ;
+    position: absolute;
+    top: 255px;
+    left: 141px;
+    height: 350px;
+    z-index: 100;
+}
+
+.plateau-item {
+    height: 60px;
+    width: 60px;
+    border: 0.5px solid #1e1d6b;
+}
+
+
+.eolienne {
+    grid-column: 1;
+    align-self: center;
+    text-align: center;
+}
+
+.eolienne img {
+    height: 15vh;
+}
+
+.tourisme {
+    grid-column: 3;
+    align-self: center;
+    text-align: center;
+}
+
+.tourisme img {
+    height: 15vh;
+}
+
+.transport {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: center;
+    text-align: center;
+}
+
+.transport img {
+    height: 15vh;
+}
+
+.peche {
+    grid-column: 3;
+    grid-row: 3;
+    align-self: center;
+    text-align: center;
+}
+
+.peche img {
+    height: 15vh;
+}
+
+
+
+.text-screen {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 30px;
+    color: #ffffff;
+}
+
+.jauges {
+    display: flex;
+    justify-content: space-around;
+}
+
+.environnement {
+    
+}
+.jauges div {
+    border: 1px solid #ffffff;
+    height: 250px;
+    width: 40px;
+    margin-bottom: 30Px;
+}
+
+.jauges img {
+    height: 50px;
+}
+
+.right-screen {
+    background-color: #1f4099;
+    width: 30%;
+    height: 100%;
+}
+
+.right-wrapper {
+    justify-content: center;
+    display: flex;
+    height: 70vh;
+    padding: 50px;
+    flex-direction: column;
+}

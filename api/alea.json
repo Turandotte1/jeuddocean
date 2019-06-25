@@ -1,0 +1,246 @@
+{
+    "1": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Pollution plastique apportée par les courants océaniques",
+        "texte": "Un huitième continent vient d'être découvert !
+        Mauvaise nouvelle, cette île flottante n'est composée que de déchets plastiques..."
+    },
+    "2": {
+        "5": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "17": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "22": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Pollution transport maritime",
+        "texte": "Ce n'est peut-être pas le courant Est-Australien,
+        mais c'est bien une route maritime beaucoup trop empruntée par les bateaux
+        qui passe par ici... Une pollution qui commence sérieusement à s'accumuler."
+    },
+    "3": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        }
+        ,
+        "nom": "Pollution grave venant des bassins versants",
+        "texte": "L'abus de persticides a des conséquences désasrteures...
+        Par le biais de la rivière, une pollution chimique se déverse dans l'estuaire !"
+    },
+    "4": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Baleine échouée",
+        "texte": "Une baleine s'est échouée sur la plage.
+        Cet événement, en plus d'être triste, est très contraignant : l'animal laisse échapper une odeur nauséabonde"
+    },
+    "5": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Découverte d’une nouvelle espèce",
+        "texte": "Une incroyable crevette à dix pattes, trois yeux et neuf antennes a été découverte par des scientifiques !
+        Une zone devient inaccessible pour qu'ils puissent étudier cette nouvelle espèce."
+    },
+    "6": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Introduction d’une espèce envahissante",
+        "texte": "Qui s'est amusé à peindre le sable ? À moins que tout ce vert
+        ne soit que la conséquence d'algues un peu trop envahissantes... Des algues qui en plus de sentir fort, sont hautement toxiques !"
+    },
+    "7": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Tempête",
+        "texte": "Le bilan est grave : 5 personnes portées disparues, des centaines d'habitations et
+        de commerces ont été dégradés ou balayés par la tempête Claudius.
+        Une grande partie des foyers de la région sont toujours plongés dans le noir."
+    },
+    "8": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Submersion. Montée des eaux",
+        "texte": "Une marée étonnamment plus importante que les autres a inondé une ville côtière...
+        Personne n'avait vu venir cette montée des eaux, et la faute est rejetée sur la pleine lune."
+    },
+    "9": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Erosion. Effondrement de la côte",
+        "texte": "Aïe aïe aïe, cet énorme bruit avait une origine :
+        c'est une partie de la côte qui vient de s'éffondrer !"
+    },
+    "10": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Découverte d'une épave",
+        "texte": "Le bâteau du fameux corsaire Barbe Verte vient d'être retrouvé au fond de l'océan.
+        À son bord, un merveilleux trésor qui viendra enrichir la collection du musée de la ville.
+        Les citoyens sont enchantés par cette histoire."
+    },
+    "11": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Mouvement social contre l’industrialisation de la mer",
+        "texte": "On les appelle les vestes oranges et ils sont tous très concernés par l'industrialisation de la mer !
+        Un mouvement social extrêmement relayé."
+    },
+    "13": {
+        "3": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "16": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "26": {
+            "vp": 0,
+            "vl": 0,
+            "ve": 0,
+        },
+        "nom": "Renommée mondiale d’un site de loisirs. Compétition de surf",
+        "texte": "Excellente nouvelle, une compétition de surf fait connaître mondialement les côtes !
+        De célèbres sportifs tels que Bressie de Nessie et Iogre d'Hessogre seront à ce rendez-vous immanquable !"
+    }
+}

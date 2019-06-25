@@ -1,0 +1,69 @@
+.text-component {
+    padding: 40px 70px;
+    text-align: left;
+}
+
+.phase-name {
+    font-size: 34px;
+    color: #1e1d6b;
+    font-weight: 900;
+    margin-bottom: 40px;
+}
+
+.text-subtitle {
+    font-size: 17px;
+    font-style: italic;
+    color: #1e1d6b;
+}
+
+.main-text {
+    border: 2px dashed rgba(60, 99, 130, .5);
+    height: 55vh;
+    line-height: 1.5;
+    padding: 10px 30px;
+    margin-top: 35px;
+}
+
+.links {
+    display: flex;
+    width: 100%;
+}
+
+.lien-text-first {
+    justify-self: end;
+}
+
+.mjText {
+    height: 340px;
+    overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.weird-thing {
+    width: 70px;
+    height: 4px;
+    background-color: #1e1d6b;
+    border-radius: 50px;
+}
+
+
+
+.links a {
+    color: #1e1d6b;
+    list-style-type: none;
+    padding: 10px 30px;
+    margin-top: auto;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
