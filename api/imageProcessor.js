@@ -21,6 +21,7 @@ module.exports = app => {
 
     app.post('/api/get-image', (req, res) => {
         plateauReel = req.body
+        console.log(plateauReel)
         res.end()
     })
 

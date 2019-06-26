@@ -93,7 +93,8 @@ def create_json (color1, color2, color3):
 
 def gridparse():
     #cv2.VideoCapture()
-    clean_img = cv2.imread('map.png')
+    clean_img = cv2.imread('map1.jpg', 0)
+    print(clean_img)
     while(1):
         img = cv2.cvtColor(clean_img, cv2.COLOR_RGB2GRAY)
         processed = pre_process_image(img)
