@@ -1,6 +1,7 @@
 .screen-component {
      display: flex;
      height: 100%;
+     width: 100%;
 }
 
 .left-screen {
@@ -114,7 +115,7 @@
 }
 
 .environnement {
-    
+
 }
 .jauges div {
     border: 1px solid #ffffff;
@@ -139,4 +140,9 @@
     height: 70vh;
     padding: 50px;
     flex-direction: column;
+}
+
+.video {
+    height: 100%;
+    width: 100%;
 }

@@ -1,5 +1,11 @@
-const plateauReel = require('./plateauReel.json')
 const plateauInfo = require('./plateauInfo.json')
+
+let plateauReel = require('./plateauReel.json')
+
+let infoMj = {
+    timeLeft: 390,
+    phase: 1
+}
 
 function howMany(data) {
     var nb = 0;
@@ -12,8 +18,17 @@ function howMany(data) {
 };
 
 module.exports = app => {
-	app.get('/calcul', (req, res) => {
 
+    app.post('/api/get-image', (req, res) => {
+        plateauReel = req.body
+        res.end()
+    })
+
+    app.get('/api/send-image', (req, res) => {
+        res.json(plateauReel)
+    })
+
+	app.get('/api/calcul', (req, res) => {
         var answer = {
             vp: 0,
             ve: 0,
@@ -38,8 +53,6 @@ module.exports = app => {
 
             console.log(vp);
 
-
-
             answer.vp += vp;
             answer.ve += ve;
             answer.vl += vl;
@@ -56,7 +69,6 @@ module.exports = app => {
             var ce = Math.pow(0.6, n * plateauInfo[i].amp);
             answer.er += plateauInfo[i].e * ce;
         }
-
-        res.json('why');
+        res.json(answer);
     });
 };

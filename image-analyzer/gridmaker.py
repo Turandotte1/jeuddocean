@@ -4,7 +4,6 @@ import json
 import operator
 import requests
 
-
 # fonction qui permet de retourner la proximite du code BGR par rapport aux couleurs de references
 def color_difference (color1, color2):
     return sum([abs(component1-component2) for component1, component2 in zip(color1, color2)])
@@ -81,7 +80,7 @@ def create_json (color1, color2, color3):
             poisson += 1
         elif value == "White":
             eolien += 1
-        elif value == "Vert":
+        elif value == "Green":
             loisir += 1
         elif value == "Yellow":
             transport += 1
@@ -127,7 +126,10 @@ def gridparse():
             col += 1
         url = "http://localhost:3005/api/get-image"
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        print("before request")
         requests.post(url, json.dumps(request, sort_keys=True, indent=4), headers=headers)
+        print("after request")
+
 
 
 

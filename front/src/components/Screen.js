@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import ReactDOM from 'react-dom'
 
 import Timer from './Timer'
+import Video from './Video'
 
 import '../styles/Screen.css';
 import '../styles/App.css';
@@ -40,73 +42,76 @@ class Screen extends Component {
 	render() {
         return (
             <div className="screen-component">
-            <div className="left-screen">
-                <div className="wrapper">
-                    <div className="eolienne">
-                        <img src={eolienne} alt=""/>
-                        <h2>{this.state.answer.vp}</h2>
-                    </div>
-                    <div className="tourisme">
-                        <img src={tourisme} alt=""/>
-                        <h2>{this.state.answer.ve}</h2>
-                    </div>
-
-                    <div className="transport">
-                        <img src={transport} alt=""/>
-                        <h2>{this.state.answer.vl}</h2>
-                    </div>
-                    <div className="peche">
-                        <img src={peche} alt=""/>
-                        <h2>{this.state.answer.vt}</h2>
-                    </div>
-                    <div className="plateau-grille">
-                        <img className="cotes" src={cotes} alt=""/>
-                        <div className="plateau">
-                                <div class="plateau-item one"></div>
-                                <div class="plateau-item two"></div>
-                                <div class="plateau-item three"></div>
-                                <div class="plateau-item four"></div>
-                                <div class="plateau-item five"></div>
-                                <div class="plateau-item six"></div>
-                                <div class="plateau-item one"></div>
-                                <div class="plateau-item two"></div>
-                                <div class="plateau-item three"></div>
-                                <div class="plateau-item four"></div>
-                                <div class="plateau-item five"></div>
-                                <div class="plateau-item six"></div>
-                                <div class="plateau-item one"></div>
-                                <div class="plateau-item two"></div>
-                                <div class="plateau-item three"></div>
-                                <div class="plateau-item four"></div>
-                                <div class="plateau-item five"></div>
-                                <div class="plateau-item six"></div>
-                                <div class="plateau-item one"></div>
-                                <div class="plateau-item two"></div>
-                                <div class="plateau-item three"></div>
-                                <div class="plateau-item four"></div>
-                                <div class="plateau-item five"></div>
-                                <div class="plateau-item six"></div>
-                                <div class="plateau-item one"></div>
-                                <div class="plateau-item two"></div>
-                                <div class="plateau-item three"></div>
-                                <div class="plateau-item four"></div>
-                                <div class="plateau-item five"></div>
-                                <div class="plateau-item six"></div>
-                                <div class="plateau-item one"></div>
-                                <div class="plateau-item two"></div>
-                                <div class="plateau-item three"></div>
-                                <div class="plateau-item four"></div>
-                                <div class="plateau-item five"></div>
-                                <div class="plateau-item six"></div>
+            <Router>
+                <Route path="/screen/video" component={Video} />
+            </Router>
+                <div className="left-screen">
+                    <div className="wrapper">
+                        <div className="eolienne">
+                            <img src={eolienne} alt=""/>
+                            <h2>{this.state.answer.vp}</h2>
                         </div>
-                    </div>
+                        <div className="tourisme">
+                            <img src={tourisme} alt=""/>
+                            <h2>{this.state.answer.ve}</h2>
+                        </div>
 
-                </div>
+                        <div className="transport">
+                            <img src={transport} alt=""/>
+                            <h2>{this.state.answer.vl}</h2>
+                        </div>
+                        <div className="peche">
+                            <img src={peche} alt=""/>
+                            <h2>{this.state.answer.vt}</h2>
+                        </div>
+                        <div className="plateau-grille">
+                            <img className="cotes" src={cotes} alt=""/>
+                            <div className="plateau">
+                                    <div class="plateau-item one"></div>
+                                    <div class="plateau-item two"></div>
+                                    <div class="plateau-item three"></div>
+                                    <div class="plateau-item four"></div>
+                                    <div class="plateau-item five"></div>
+                                    <div class="plateau-item six"></div>
+                                    <div class="plateau-item one"></div>
+                                    <div class="plateau-item two"></div>
+                                    <div class="plateau-item three"></div>
+                                    <div class="plateau-item four"></div>
+                                    <div class="plateau-item five"></div>
+                                    <div class="plateau-item six"></div>
+                                    <div class="plateau-item one"></div>
+                                    <div class="plateau-item two"></div>
+                                    <div class="plateau-item three"></div>
+                                    <div class="plateau-item four"></div>
+                                    <div class="plateau-item five"></div>
+                                    <div class="plateau-item six"></div>
+                                    <div class="plateau-item one"></div>
+                                    <div class="plateau-item two"></div>
+                                    <div class="plateau-item three"></div>
+                                    <div class="plateau-item four"></div>
+                                    <div class="plateau-item five"></div>
+                                    <div class="plateau-item six"></div>
+                                    <div class="plateau-item one"></div>
+                                    <div class="plateau-item two"></div>
+                                    <div class="plateau-item three"></div>
+                                    <div class="plateau-item four"></div>
+                                    <div class="plateau-item five"></div>
+                                    <div class="plateau-item six"></div>
+                                    <div class="plateau-item one"></div>
+                                    <div class="plateau-item two"></div>
+                                    <div class="plateau-item three"></div>
+                                    <div class="plateau-item four"></div>
+                                    <div class="plateau-item five"></div>
+                                    <div class="plateau-item six"></div>
+                            </div>
+                        </div>
+
+                    </div>
 
             </div>
             <div className="right-screen">
                 <div className="right-wrapper">
-                    <Timer/>
+                    <Timer phase={{ phase: 1 }}/>
                     <div className="text-screen">
                         <h2>Phase 2 :</h2>
                         <p>Placez vos pions avant la fin du temps imparti !</p>

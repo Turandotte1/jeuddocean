@@ -45,3 +45,14 @@
 .left-phase3 {
     width: 100%;
 }
+
+.blue-button {
+    margin-top: 10px;
+    font-size: 17px;
+    background-color: #1e1d6b;
+    border: none;
+    padding: 10px 30px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 900;
+}
