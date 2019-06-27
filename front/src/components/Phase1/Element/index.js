@@ -1,8 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+import '../../../styles/left-screen-mj.css';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight, faArrowCircleLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default function Element() {
     return (

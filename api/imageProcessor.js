@@ -1,6 +1,7 @@
-const plateauInfo = require('./plateauInfo.json')
+const fs = require('fs');
+const plateauInfo = require('../staticData/plateauInfo.json')
 
-let plateauReel = require('./plateauReel.json')
+let plateauReel = require('../staticData/plateauReel.json')
 
 let infoMj = {
     timeLeft: 390,
@@ -8,7 +9,7 @@ let infoMj = {
 }
 
 function howMany(data) {
-    var nb = 0;
+    let nb = 0;
     for (x in data) {
         if (data[x] == true) {
             nb++;
@@ -21,7 +22,6 @@ module.exports = app => {
 
     app.post('/api/get-image', (req, res) => {
         plateauReel = req.body
-        console.log(plateauReel)
         res.end()
     })
 
@@ -30,7 +30,7 @@ module.exports = app => {
     })
 
 	app.get('/api/calcul', (req, res) => {
-        var answer = {
+        let answer = {
             vp: 0,
             ve: 0,
             vl: 0,
@@ -40,19 +40,17 @@ module.exports = app => {
             er: 0,
         };
 
-        for (var i = 1; i < 30; i++) {
+        for (let i = 1; i < 30; i++) {
 
-            var n = howMany(plateauReel[i]);
+            let n = howMany(plateauReel[i]);
 
-            var cc = Math.pow(0.7, (n - 1));
+            let cc = Math.pow(0.7, (n - 1));
 
-            var vp = plateauInfo[i].pp * plateauReel[i].peche * cc * plateauInfo[i].amp;
-            var ve = plateauInfo[i].pe * plateauReel[i].eolien * cc * plateauInfo[i].amp;
-            var vl = plateauInfo[i].pl * plateauReel[i].loisir * cc * plateauInfo[i].amp;
-            var vt = plateauInfo[i].pt * plateauReel[i].transport * cc * plateauInfo[i].amp;
-            var vg = vp + ve + vl + vt;
-
-            console.log(vp);
+            let vp = plateauInfo[i].pp * plateauReel[i].peche * cc * plateauInfo[i].amp;
+            let ve = plateauInfo[i].pe * plateauReel[i].eolien * cc * plateauInfo[i].amp;
+            let vl = plateauInfo[i].pl * plateauReel[i].loisir * cc * plateauInfo[i].amp;
+            let vt = plateauInfo[i].pt * plateauReel[i].transport * cc * plateauInfo[i].amp;
+            let vg = vp + ve + vl + vt;
 
             answer.vp += vp;
             answer.ve += ve;
@@ -70,6 +68,68 @@ module.exports = app => {
             var ce = Math.pow(0.6, n * plateauInfo[i].amp);
             answer.er += plateauInfo[i].e * ce;
         }
+
+        fs.writeFile('./api/lastData.json', JSON.stringify(answer), 'utf8', function readFileCallback(err, data) {
+            if (err){
+                console.log(err);
+            } else {
+                console.log("json ok")
+            }
+        });
         res.json(answer);
-    });
+    })
+
+    app.get('/api/pas-de-temps', (req, res) => {
+        let today = Date.now();
+        let year = new Date().getFullYear();
+
+        let pasDeTemps = {
+            "1": {
+                year: year + 2
+            },
+            "2": {
+                year: year + 4
+            },
+            "3": {
+                year: year + 6
+            },
+            "4": {
+                year: year + 8
+            },
+            "5": {
+                year: year + 10
+            },
+            "6": {
+                year: year + 12
+            },
+            "7": {
+                year: year + 14
+            },
+            "8": {
+                year: year + 16
+            },
+            "9": {
+                year: year + 18
+            },
+            "10": {
+                year: year + 20
+            },
+            "11": {
+                year: year + 22
+            },
+            "12": {
+                year: year + 24
+            },
+            "13": {
+                year: year + 26
+            },
+            "14": {
+                year: year + 28
+            },
+            "15": {
+                year: year + 30
+            }
+        }
+        res.json(pasDeTemps)
+    })
 };

@@ -1,0 +1,185 @@
+.screen-component {
+     display: flex;
+     height: 100%;
+     width: 100%;
+}
+
+.left-screen {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background-color: #1e1d6b;
+    width: 70%;
+    height: 100%;
+}
+
+.flex-layout {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 90%;
+    width: 90%;
+}
+
+.top-line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-line {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.jauges-perso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    width: 200px;
+}
+
+.jauges-perso img {
+    height: 130px;
+}
+
+.jauge-perso {
+    width: 20px;
+    height: 130px;
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.eolienne {
+    border: 1px solid white;
+}
+
+.loisir {
+    border: 1px solid #7AC363;
+}
+
+.transport {
+    border: 1px solid #FFAF23;
+}
+
+.peche {
+    border: 1px solid #FF6F72;
+}
+
+.filler {
+    width: 14px;
+}
+
+.plateau-grid {
+    position: absolute;
+    left: 12%;
+    top: 10%;
+    background-color: #1f4099;
+    padding: 30px;
+    transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+}
+
+.cotes {
+    position: absolute;
+    left: 2%;
+    top: 34%;
+    transform: rotateX(-30deg);
+    height: 390px;
+    z-index: 100;
+}
+
+.plateau-item {
+    height: 100px;
+    width: 100px;
+    border: 0.5px solid #1e1d6b;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+
+/*
+
+
+.jauges {
+    display: flex;
+    justify-content: space-around;
+}
+
+.environnement {
+
+}
+.jauges div {
+    border: 1px solid #ffffff;
+    height: 250px;
+    width: 40px;
+    margin-bottom: 30Px;
+}
+
+.jauges img {
+    height: 50px;
+}*/
+
+.text-screen {
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.right-screen {
+    background-color: #1f4099;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-wrapper {
+    height: 93%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.jauges-globales {
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.jauge-global {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.jauge-container {
+    height: 230px;
+    width: 38px;
+    margin-bottom: 16px;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.jauge-global img {
+    align-self: flex-end;
+    height: 40px;
+}
+
+.filler-global {
+    width: 30px;
+    border-radius: 1px;
+
+}

@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
+require('./api/mj-handlers.js')(app);
 require('./api/imageProcessor.js')(app);
 
 

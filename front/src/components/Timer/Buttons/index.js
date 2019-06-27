@@ -4,8 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedoAlt, faPlay, faPause } from '@fortawesome/free-solid-svg-icons';
 
 import '../../../styles/App.css';
-import lecture from '../../../images/Lecture.svg';
-import pause from '../../../images/Pause.svg';
 
 export default function Buttons(props) {
 

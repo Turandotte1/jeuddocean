@@ -93,7 +93,7 @@ def create_json (color1, color2, color3):
 
 def gridparse():
     #cv2.VideoCapture()
-    clean_img = cv2.imread('map1.jpg', 0)
+    clean_img = cv2.imread('map.jpg')
     print(clean_img)
     while(1):
         img = cv2.cvtColor(clean_img, cv2.COLOR_RGB2GRAY)
@@ -127,11 +127,7 @@ def gridparse():
             col += 1
         url = "http://localhost:3005/api/get-image"
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        print("before request")
         requests.post(url, json.dumps(request, sort_keys=True, indent=4), headers=headers)
-        print("after request")
-
-
 
 
 if __name__ == '__main__':
