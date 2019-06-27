@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
-import Timer from '../Timer'
+import ElapsedTime from '../Timer/elapsed-time'
 import Grid from './Grid'
 
 import '../../styles/screen-game.css';
@@ -32,7 +32,10 @@ class Screen extends Component {
             peche: [],
             eolien: [],
             loisir: [],
-            transport: []
+            transport: [],
+          timeLeft: 390,
+          phase: 1,
+          isPaused: true,
         };
     }
 
@@ -94,13 +97,31 @@ class Screen extends Component {
         });
    }
 
+  getTime() {
+    axios.get('http://localhost:3005/api/time')
+      .then(res => {
+        const timeInfo = res.data
+        this.setState(timeInfo)
+      })
+  }
+
+
     componentDidMount() {
+    const interval = setInterval(() => {
         this.getCalcul();
         this.getImage();
         this.getVideo();
+        this.getTime()
+      }, 1000)
+  this.setState({ interval })
     }
 
+  componentWillUnmount() {
+    clearInterval(this.state.interval)
+  }
+
 	render() {
+    const { timeLeft, phase, isPaused } = this.state
         return (
             <div className="screen-component">
                 <div className="left-screen">
@@ -155,7 +176,7 @@ class Screen extends Component {
                 </div>
                 <div className="right-screen">
                     <div className="right-wrapper">
-                        <Timer phase={{ phase: 1 }} />
+                        <ElapsedTime phase={phase} timeLeft={timeLeft} />
                         <div className="text-screen">
                             <h2>Phase 2 :</h2>
                             <p>Placez vos pions avant la fin du temps imparti !</p>
