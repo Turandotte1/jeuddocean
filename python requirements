@@ -1,0 +1,7 @@
+installed requirements :
+	python 3
+	pip
+installations needed :
+	pip install python-opencv
+	pip install numpy
+	pip install requests

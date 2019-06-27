@@ -3,6 +3,7 @@ import numpy as np
 import json
 import operator
 import requests
+import time
 
 # fonction qui permet de retourner la proximite du code BGR par rapport aux couleurs de references
 def color_difference (color1, color2):
@@ -128,6 +129,7 @@ def gridparse():
         url = "http://localhost:3005/api/get-image"
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
         requests.post(url, json.dumps(request, sort_keys=True, indent=4), headers=headers)
+        time.sleep(5)
 
 
 if __name__ == '__main__':
