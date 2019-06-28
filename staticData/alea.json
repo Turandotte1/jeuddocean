@@ -1,246 +1,188 @@
 {
     "1": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Pollution plastique apportée par les courants océaniques",
-        "texte": "Un huitième continent vient d'être découvert !
-        Mauvaise nouvelle, cette île flottante n'est composée que de déchets plastiques..."
+        "id": 3,
+        "loisir": 0,
+        "peche": 0
     },
     "2": {
-        "5": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "17": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "22": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Pollution transport maritime",
-        "texte": "Ce n'est peut-être pas le courant Est-Australien,
-        mais c'est bien une route maritime beaucoup trop empruntée par les bateaux
-        qui passe par ici... Une pollution qui commence sérieusement à s'accumuler."
+        "id": 16,
+        "loisir": 0,
+        "peche": 0
     },
     "3": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        }
-        ,
-        "nom": "Pollution grave venant des bassins versants",
-        "texte": "L'abus de persticides a des conséquences désasrteures...
-        Par le biais de la rivière, une pollution chimique se déverse dans l'estuaire !"
+        "id": 26,
+        "loisir": 0,
+        "peche": 0
     },
     "4": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Baleine échouée",
-        "texte": "Une baleine s'est échouée sur la plage.
-        Cet événement, en plus d'être triste, est très contraignant : l'animal laisse échapper une odeur nauséabonde"
+        "id": 5,
+        "loisir": 0,
+        "peche": 0
     },
     "5": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Découverte d’une nouvelle espèce",
-        "texte": "Une incroyable crevette à dix pattes, trois yeux et neuf antennes a été découverte par des scientifiques !
-        Une zone devient inaccessible pour qu'ils puissent étudier cette nouvelle espèce."
+        "id": 17,
+        "loisir": 0,
+        "peche": 0
     },
     "6": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Introduction d’une espèce envahissante",
-        "texte": "Qui s'est amusé à peindre le sable ? À moins que tout ce vert
-        ne soit que la conséquence d'algues un peu trop envahissantes... Des algues qui en plus de sentir fort, sont hautement toxiques !"
+        "id": 22,
+        "loisir": 0,
+        "peche": 0
     },
     "7": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Tempête",
-        "texte": "Le bilan est grave : 5 personnes portées disparues, des centaines d'habitations et
-        de commerces ont été dégradés ou balayés par la tempête Claudius.
-        Une grande partie des foyers de la région sont toujours plongés dans le noir."
+        "id": 7,
+        "loisir": 0,
+        "peche": 0
     },
     "8": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Submersion. Montée des eaux",
-        "texte": "Une marée étonnamment plus importante que les autres a inondé une ville côtière...
-        Personne n'avait vu venir cette montée des eaux, et la faute est rejetée sur la pleine lune."
+        "id": 19,
+        "loisir": 0,
+        "peche": 0
     },
     "9": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Erosion. Effondrement de la côte",
-        "texte": "Aïe aïe aïe, cet énorme bruit avait une origine :
-        c'est une partie de la côte qui vient de s'éffondrer !"
+        "id": 25,
+        "loisir": 0,
+        "peche": 0
     },
     "10": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Découverte d'une épave",
-        "texte": "Le bâteau du fameux corsaire Barbe Verte vient d'être retrouvé au fond de l'océan.
-        À son bord, un merveilleux trésor qui viendra enrichir la collection du musée de la ville.
-        Les citoyens sont enchantés par cette histoire."
+        "id": 13,
+        "transport": 0,
+        "peche": 0
     },
     "11": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Mouvement social contre l’industrialisation de la mer",
-        "texte": "On les appelle les vestes oranges et ils sont tous très concernés par l'industrialisation de la mer !
-        Un mouvement social extrêmement relayé."
+        "id": 15,
+        "transport": 0,
+        "peche": 0
+    },
+    "12": {
+        "id": 23,
+        "transport": 0,
+        "peche": 0
     },
     "13": {
-        "3": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "16": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "26": {
-            "vp": 0,
-            "vl": 0,
-            "ve": 0,
-        },
-        "nom": "Renommée mondiale d’un site de loisirs. Compétition de surf",
-        "texte": "Excellente nouvelle, une compétition de surf fait connaître mondialement les côtes !
-        De célèbres sportifs tels que Bressie de Nessie et Iogre d'Hessogre seront à ce rendez-vous immanquable !"
+        "id": 9,
+        "peche": 0,
+        "transport": 0,
+        "loisir": 0,
+        "eolien": 0
+    },
+    "14": {
+        "id": 11,
+        "peche": 0,
+        "transport": 0,
+        "loisir": 0,
+        "eolien": 0
+    },
+    "15": {
+        "id": 29,
+        "peche": 0,
+        "transport": 0,
+        "loisir": 0,
+        "eolien": 0
+    },
+    "16" : {
+        "id": 6,
+        "loisir": 0,
+        "peche": 0
+    },
+    "17": {
+        "id": 20,
+        "loisir": 0,
+        "peche": 0
+    },
+    "18": {
+        "id": 21,
+        "loisir": 0,
+        "peche": 0
+    },
+    "19": {
+        "id": 12,
+        "eolien": 0
+    },
+    "20": {
+        "id": 14,
+        "eolien": 0
+    },
+    "21": {
+        "id": 18,
+        "eolien": 0
+    },
+    "22": {
+        "id": 3,
+        "loisir": 0,
+        "transport": 0
+    },
+    "23": {
+        "id": 13,
+        "loisir": 0,
+        "transport": 0
+    },
+    "24": {
+        "id": 19,
+        "loisir": 0,
+        "transport": 0
+    },
+    "25": {
+        "id": 8,
+        "transport": 0,
+        "loisir": 0,
+        "eolien": 0
+    },
+    "26": {
+        "id": 23,
+        "transport": 0,
+        "loisir": 0,
+        "eolien": 0
+    },
+    "27": {
+        "id": 29,
+        "transport": 0,
+        "loisir": 0,
+        "eolien": 0
+    },
+    "28": {
+        "id": 10,
+        "eolien": 0,
+        "peche": 0
+    },
+    "29": {
+        "id": 27,
+        "eolien": 0,
+        "peche": 0
+    },
+    "30": {
+        "id": 28,
+        "eolien": 0,
+        "peche": 0
+    },
+    "31": {
+        "id": 8,
+        "eolien": 0,
+        "transport": 0
+    },
+    "32": {
+        "id": 17,
+        "eolien": 0,
+        "transport": 0
+    },
+    "33": {
+        "id": 26,
+        "eolien": 0,
+        "transport": 0
+    },
+    "34": {
+        "id": 7,
+        "eolien": 0,
+        "transport": 0
+    },
+    "35": {
+        "id": 16,
+        "eolien": 0,
+        "transport": 0
+    },
+    "36": {
+        "id": 25,
+        "eolien": 0,
+        "transport": 0
     }
 }

@@ -74,9 +74,6 @@ class Introduction extends React.Component {
                         potentiel pour se développer.
                         C’est bon pour l’économie, c’est bon pour l’emploi. — Mot d’ordre : le gain, le gain, le gain.]
                     </p>
-                    <button onClick={this.startVideo} className="blue-button">
-                            {this.state.video1 ? 'Stop' : 'Vidéo' }
-                    </button>
                 </div>
                 <div className="links">
                     <Link to="/phase1/distribution" className="lien-text-first">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axios from 'axios'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight, faArrowCircleLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -65,7 +66,7 @@ function Alea() {
                         avoir constaté avec les joueurs les conséquences sur les jauges.
                         Laisser la partie se dérouler.]
                 </p>
-                <button onClick="" className="blue-button">
+                <button onClick={axios.post('http://localhost:3005/api/alea', {} )} className="blue-button">
                         Lancer aléa
                 </button>
             </div>

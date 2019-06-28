@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Lightbox } from "react-modal-image";
 
 import ElapsedTime from '../Timer/elapsed-time'
 import Grid from './Grid'
@@ -36,6 +37,10 @@ class Screen extends Component {
           timeLeft: 390,
           phase: 1,
           isPaused: true,
+          reglemente: [],
+          interdit: [],
+          alea: 0,
+          aleaOpen: false
         };
     }
 
@@ -66,10 +71,6 @@ class Screen extends Component {
                     });
                 }
             }
-            console.log(this.state.eolien)
-            console.log(this.state.peche)
-            console.log(this.state.loisir)
-            console.log(this.state.transport)
         })
    }
 
@@ -97,6 +98,22 @@ class Screen extends Component {
         });
    }
 
+   getZoneReglementes() {
+       axios.get('http://localhost:3005/api/amp-reglemente')
+       .then(res => {
+           const reglemente = res.data
+           this.setState({reglemente : reglemente})
+        });
+   }
+
+   getZoneInterdit() {
+       axios.get('http://localhost:3005/api/amp-interdit')
+       .then(res => {
+           const interdit = res.data
+           this.setState({interdit : interdit})
+        });
+   }
+
   getTime() {
     axios.get('http://localhost:3005/api/time')
       .then(res => {
@@ -104,6 +121,15 @@ class Screen extends Component {
         this.setState(timeInfo)
       })
   }
+
+  getAlea() {
+      axios.get('http://localhost:3005/api/alea')
+        .then(res => {
+          const alea = res.data
+          this.setState({alea : alea })
+          this.setState({aleaOpen : true })
+        })
+    }
 
 
     componentDidMount() {
@@ -113,8 +139,12 @@ class Screen extends Component {
         this.getVideo();
         this.getTime()
       }, 1000)
-  this.setState({ interval })
+      this.setState({ interval })
+      this.getZoneReglementes();
+      this.getZoneInterdit();
+      this.getAlea();
     }
+
 
   componentWillUnmount() {
     clearInterval(this.state.interval)
@@ -172,6 +202,8 @@ class Screen extends Component {
                     peche={this.state.peche}
                     loisir={this.state.loisir}
                     transport={this.state.transport}
+                    interdit={this.state.interdit}
+                    reglemente={this.state.reglemente}
                 />
                 </div>
                 <div className="right-screen">

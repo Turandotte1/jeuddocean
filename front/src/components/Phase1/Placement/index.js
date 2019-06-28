@@ -35,9 +35,6 @@ export default function Placement() {
                              L’objectif est à la fois de les alerter et à la fois d’attirer leur attention sur les jauges de développement
                              durable à l’écran.]
                         </p>
-                        <a href className="blue-button">
-                            vidéo
-                        </a>
                 </div>
                 <div className="links">
                     <Link to="/phase1/distribution" className="lien-text-prev">
