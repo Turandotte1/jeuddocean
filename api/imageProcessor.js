@@ -8,6 +8,12 @@ let infoMj = {
     phase: 1
 }
 
+let time = {
+  timeLeft: 390,
+  phase: 1,
+  isPaused: true,
+}
+
 function howMany(data) {
     let nb = 0;
     for (x in data) {
@@ -28,6 +34,19 @@ module.exports = app => {
     app.get('/api/send-image', (req, res) => {
         res.json(plateauReel)
     })
+
+  // expecting payload as {
+  // timeLeft: seconds,
+  // phase: 1 | 2,
+  // isPaused: boolean
+  // }
+  app.post('/api/time', (req, res) => {
+    time = req.body
+    res.end()
+  })
+  app.get('/api/time', (req, res) => {
+    res.json(time)
+  })
 
 	app.get('/api/calcul', (req, res) => {
         let answer = {

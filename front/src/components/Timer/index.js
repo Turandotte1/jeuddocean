@@ -1,15 +1,12 @@
 import React from 'react'
 import ElapsedTime from './elapsed-time'
 import Buttons from './Buttons'
+import axios from 'axios'
 
 import 'react-circular-progressbar/dist/styles.css';
 import '../../styles/right-screen-mj.css';
 import '../../styles/App.css'
-
-const phaseTime = {
-    1: 390,
-    2: 540,
-}
+import { phaseTime, } from '../../constants'
 
 class Timer extends React.Component {
     constructor(props) {
@@ -24,15 +21,16 @@ class Timer extends React.Component {
 
         this.pauseTimerEvent = this.pauseTimerEvent.bind(this)
         this.tick = this.tick.bind(this)
-        this.poll = setInterval(this.tick, 1000)
         this.refreshTimerEvent = this.refreshTimerEvent.bind(this)
     }
 
     tick() {
         this.setState((prevState) => {
-            if (!prevState.isPaused)
-                return { timeLeft: prevState.timeLeft-1 }
+            if (!prevState.isPaused) {
+                return { timeLeft: prevState.timeLeft - 1 }
+            }
         })
+      this.sendTime()
     }
 
     pauseTimerEvent() {
@@ -47,12 +45,23 @@ class Timer extends React.Component {
             timeLeft: phaseTime[this.state.phase],
         })
     }
+  sendTime() {
+    const { timeLeft, isPaused, phase } = this.state
+    axios.post('http://localhost:3005/api/time', { timeLeft, isPaused, phase})
+  }
+  componentDidMount () {
+    const interval = setInterval(this.tick, 1000)
+    this.setState({ interval })
+  }
+  componentWillUnmount() {
+    clearInterval(this.state.interval)
+  }
 
   render() {
     return (
       <div className='timer-container'>
         <ElapsedTime
-          timeLeft={this.state.timeLeft} phaseTime={phaseTime[this.state.phase]}
+          timeLeft={this.state.timeLeft} phase={this.state.phase}
         />
         <Buttons
           handlePause={this.pauseTimerEvent}
