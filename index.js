@@ -10,7 +10,6 @@ app.use(cors());
 require('./api/mj-handlers.js')(app);
 require('./api/imageProcessor.js')(app);
 
-
 const port = 3005 || process.env.PORT;
 
 console.log("back about to listen");

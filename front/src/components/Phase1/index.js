@@ -22,7 +22,7 @@ class Phase1 extends Component {
         this.state = {
             phase: 1
         };
-        
+
     }
 
     render() {
@@ -51,7 +51,7 @@ class Phase1 extends Component {
                         <Timer phase={{ phase: this.state.phase }}/>
                     </div>
                     <div className="buttons-wrapper">
-                        <Link to="/Phase2/Remplacement">Aller à la phase 2</Link>
+                        <Link className="rose-button" to="/Phase2/Remplacement">Aller à la phase 2</Link>
                     </div>
                 </div>
             </div>

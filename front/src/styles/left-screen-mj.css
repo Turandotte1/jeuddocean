@@ -76,6 +76,7 @@
     margin-top: 20px;
 }
 
+
 .grid-mj {
     display: grid;
     align-self: center;
@@ -90,14 +91,14 @@
     width: 70%;
 }
 
-.grid-mj > div:not(.island) {
+.grid-mj > button:not(.island) {
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px #1e1d6b solid;
     height: 25px;
     width: 25px;
-    color: #ffffff;
+    color: #1e1d6b;
     border-right: 1px #1e1d6b solid;
 }
 

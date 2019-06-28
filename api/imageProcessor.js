@@ -88,6 +88,7 @@ module.exports = app => {
             answer.er += plateauInfo[i].e * ce;
         }
 
+/*
         fs.writeFile('./api/lastData.json', JSON.stringify(answer), 'utf8', function readFileCallback(err, data) {
             if (err){
                 console.log(err);
@@ -95,8 +96,10 @@ module.exports = app => {
                 console.log("json ok")
             }
         });
+*/
         res.json(answer);
     })
+
 
     app.get('/api/pas-de-temps', (req, res) => {
         let today = Date.now();

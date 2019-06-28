@@ -51,6 +51,7 @@
 }
 
 .rose-button {
+    text-decoration: none;
     text-transform: uppercase;
     background-color: #ff6f72;
     border: none;
