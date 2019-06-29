@@ -17,6 +17,7 @@ class Timer extends React.Component {
             isPaused: true,
             phase,
             timeLeft: phaseTime[phase],
+          interval: null,
         }
 
         this.pauseTimerEvent = this.pauseTimerEvent.bind(this)
@@ -27,7 +28,14 @@ class Timer extends React.Component {
     tick() {
         this.setState((prevState) => {
             if (!prevState.isPaused) {
-                return { timeLeft: prevState.timeLeft - 1 }
+              if (prevState.timeLeft === 1 && this.props.onEnd) {
+                console.log('calling onEnd')
+                this.props.onEnd()
+                clearInterval(this.state.interval)
+                this.setState({interval: null, })
+                return prevState
+              }
+              return { timeLeft: prevState.timeLeft - 1 }
             }
         })
       this.sendTime()
