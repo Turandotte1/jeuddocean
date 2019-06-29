@@ -23,9 +23,9 @@ let alea = {
     "eolien": 1
 }
 
-let aleaSwitcher = 1;
-let interditSwitcher = 1;
-let reglementeSwitcher = 1;
+let aleaSwitcher = 0;
+let interditSwitcher = 0;
+let reglementeSwitcher = 0;
 
 let chosen = []
 let none = []

@@ -145,9 +145,12 @@ class Screen extends Component {
       this.getAlea();
     }
 
-
   componentWillUnmount() {
     clearInterval(this.state.interval)
+    this.setState({ alea : 0})
+    this.setState({interdit : []})
+    this.setState({reglemente : [] })
+    this.setState({aleaOpen : false})
   }
 
 	render() {
