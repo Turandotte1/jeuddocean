@@ -9,35 +9,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 class Introduction extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            video1: false
-        };
-        this.startVideo = this.startVideo.bind(this)
-    }
-
-    startVideo() {
-        this.setState({
-            video1: !this.state.video1
-        },
-
-        async function() {
-            let data = this.state.video1;
-            const options = {
-                  method: 'POST',
-                  url: 'http://localhost:3005/api/start-video'
-            };
-            axios(data, options)
-
-            .then(function (switcher) {
-               console.log(switcher);
-             })
-             .catch(function (error) {
-                 console.log(error);
-             })
-         })
-    }
+  componentDidMount() {
+    console.log('ending video')
+    this.endVideo() // clear any video playing atm
+      .then(() => {
+        setTimeout(() => { // wait one second to be sure the front end registered it
+          this.startVideo()
+        }, 1500)
+      })
+  }
+  endVideo() {
+    return axios.post('http://localhost:3005/api/videoId', { videoId: 0}) 
+  }
+  startVideo() {
+    return axios.post('http://localhost:3005/api/videoId', { videoId: 1})
+  }
 
     render() {
         return (
@@ -74,9 +60,6 @@ class Introduction extends React.Component {
                         potentiel pour se développer.
                         C’est bon pour l’économie, c’est bon pour l’emploi. — Mot d’ordre : le gain, le gain, le gain.]
                     </p>
-                    <button onClick={this.startVideo} className="blue-button">
-                            {this.state.video1 ? 'Stop' : 'Vidéo' }
-                    </button>
                 </div>
                 <div className="links">
                     <Link to="/phase1/distribution" className="lien-text-first">

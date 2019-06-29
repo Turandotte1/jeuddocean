@@ -1,8 +1,11 @@
 import React from 'react';
+import axios from 'axios'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Redirect } from 'react-router'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight, faArrowCircleLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { videoLength, } from '../../constants'
 
 import '../../styles/left-screen-mj.css';
 import '../../styles/right-screen-mj.css';
@@ -139,7 +142,19 @@ function Remplacement() {
   );
 }
 
-const Phase2 = () => {
+class Phase2 extends React.Component {
+  state = {}
+  transitionToPhase3 = () => {
+    axios.post('http://localhost:3005/api/videoId', { videoId: 3})
+    setTimeout(() => {
+      this.setState({ redirectToPhase3: true })
+    }, videoLength[3] * 1000)
+  }
+  render() {
+    if (this.state.redirectToPhase3) {
+      console.log('redirecting to phase 2')
+      return <Redirect to="/phase3/projection"/>
+    }
   return (
       <div id="mainScreen">
           <Link to="/" className="close-button">
@@ -163,7 +178,7 @@ const Phase2 = () => {
           </div>
           <div className="right">
               <div className="timer-wrapper">
-                  <Timer phase={{ phase: 2 }}/>
+                  <Timer phase={{ phase: 2 }} onEnd={this.transitionToPhase3}/>
               </div>
               <div className="buttons-wrapper">
                     <Link className="rose-button" to="/phase3/projection">Aller à la phase 3</Link>
@@ -171,6 +186,7 @@ const Phase2 = () => {
           </div>
       </div>
   );
+  }
 };
 
 export default Phase2;

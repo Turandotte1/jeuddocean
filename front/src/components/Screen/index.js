@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import ElapsedTime from '../Timer/elapsed-time'
 import Grid from './Grid'
+import Video from '../Video'
 
 import '../../styles/screen-game.css';
 import '../../styles/App.css';
@@ -90,13 +91,6 @@ class Screen extends Component {
        })
    }
 
-   getVideo() {
-       axios.get('http://localhost:3005/api/send-video')
-       .then(res => {
-            console.log("I'm here already" + res.body)
-        });
-   }
-
   getTime() {
     axios.get('http://localhost:3005/api/time')
       .then(res => {
@@ -110,7 +104,6 @@ class Screen extends Component {
     const interval = setInterval(() => {
         this.getCalcul();
         this.getImage();
-        this.getVideo();
         this.getTime()
       }, 1000)
   this.setState({ interval })
@@ -218,4 +211,32 @@ class Screen extends Component {
     }
 }
 
-export default Screen;
+class ScreenWrapper extends React.Component {
+  state = {
+    videoId: 0,
+  }
+  componentDidMount() {
+    const interval = setInterval(() => {
+      axios.get('http://localhost:3005/api/videoId')
+        .then(res => {
+          const { videoId } = res.data
+          console.log(videoId)
+          this.setState({ videoId })
+        })
+    }, 1000)
+    this.setState({ interval })
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.interval)
+  }
+  render () { 
+    const { videoId } = this.state
+    if (videoId) {
+      return <Video videoId={videoId} />
+    }
+    return <Screen/>
+  }
+}
+
+export default ScreenWrapper;
