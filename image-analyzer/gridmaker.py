@@ -17,8 +17,37 @@ def distance_between(p1, p2):
     # fonction qui permet de retrouver la couleur la plus presente dans une zone donnee retour en BGR peut etre faudra
     # t'il convertir cette valeur en "Couleur" texte afin de faciliter son identification par la suite
 def unique_count_app(a):
-    colors, count = np.unique(a.reshape(-1,a.shape[-1]), axis=0, return_counts=True)
-    return colors[count.argmax()]
+    value1 = 0
+    value2 = 0
+    value3 = 0
+    value4 = 0
+    default = 0
+    for i in a:
+        for color1 in i:
+            if color1[0] < 170 and color1[1] > 210 and color1[2] > 210:
+                value1 += 1
+            elif color1[0] > 220 and color1[1] > 220 and color1[2] > 160:
+                value4 += 1
+            elif color1[0] > 120 and color1[1] > 80 and color1[1] < 230 and color1[2] > 240:
+                value2 += 1
+            elif color1[0] > 80 and color1[1] > 230 and color1[2] < 120:
+                value3 += 1
+            else:
+                default += 1
+    print(str(value1) + "   " + str(value2) + "   "+ str(value3) + "   "+ str(value4) + "   " + str(default))
+    if (value1 * 2 > default):
+        return ([150, 220, 220])
+    if value4 * 2> default:
+        return ([255, 255, 255])
+    if value2 * 2 > default:
+        return ([130, 100, 250])
+    if value3 * 2 > default :
+        return ([90, 240, 110])
+    return ([0, 0, 0])
+
+
+    # cette fonction permet de redefinir une zone d'interet a partir des points qui ont ete determines comme appartenant
+    # au plus grand carre dans l'image et de "redresser" l'image afin d'obtenir une carte qui soit exploitable facilement.
 
     # cette fonction permet de redefinir une zone d'interet a partir des points qui ont ete determines comme appartenant
     # au plus grand carre dans l'image et de "redresser" l'image afin d'obtenir une carte qui soit exploitable facilement.
@@ -60,6 +89,46 @@ def pre_process_image(img):
     return proc
 
 def create_json (color1, color2, color3):
+    poisson = 0
+    eolien = 0
+    loisir = 0
+    transport = 0
+
+    if color1[0] < 170 and color1[1] > 210 and color1[2] > 210:
+        transport += 1
+    elif color1[0] > 120 and color1[1] > 80 and color1[1] < 230 and color1[2] > 240:
+        poisson += 1
+    elif color1[0] > 80 and color1[1] > 230 and color1[2] < 120:
+        loisir += 1
+    elif color1[0] > 220 and color1[1] > 220 and color1[2] > 160:
+        eolien += 1
+
+    if color2[0] < 170 and color2[1] > 210 and color2[2] > 210:
+        transport += 1
+    elif color2[0] > 120 and color2[1] > 80 and color2[1] < 230 and color2[2] > 240:
+        poisson += 1
+    elif color2[0] > 80 and color2[1] > 230 and color2[2] < 120:
+        loisir += 1
+    elif color2[0] > 220 and color2[1] > 220 and color2[2] > 160:
+        eolien += 1
+
+    if color3[0] < 170 and color3[1] > 210 and color3[2] > 210:
+        transport += 1
+    elif color3[0] > 120 and color3[1] > 80 and color3[1] < 230 and color3[2] > 240:
+        poisson += 1
+    elif color3[0] > 80 and color3[1] > 230 and color3[2] < 120:
+        loisir += 1
+    elif color3[0] > 220 and color3[1] > 220 and color3[2] > 160:
+        eolien += 1
+    return ({
+        "peche": poisson,
+        "eolien": eolien,
+        "loisir": loisir,
+        "transport": transport
+    })
+
+
+def create_json_alexis(color1, color2, color3):
     colors = {"Red": (243, 54, 191), "Yellow": (0, 255, 255), "Green": (80, 255, 149), "White": (255, 255, 255), "Blue": (255, 0, 0)}
     poisson = 0
     eolien = 0
@@ -85,45 +154,6 @@ def create_json (color1, color2, color3):
             loisir += 1
         elif value == "Yellow":
             transport += 1
-    return ({
-        "peche": poisson,
-        "eolien": eolien,
-        "loisir": loisir,
-        "transport": transport
-    })
-
-
-def create_json_alexis(color1, color2, color3):
-    poisson = 0
-    eolien = 0
-    loisir = 0
-    transport = 0
-
-    if color1[0] < 170 and color1[1] > 230 and color1[2] > 230:
-        transport += 1
-    elif color1[0] > 130 and color1[1] > 90 and color1[1] < 230 and color1[2] > 240:
-        poisson += 1
-    elif color1[0] > 130 and color1[1] > 230 and color1[2] < 120:
-        loisir += 1
-    elif color1[0] > 220 and color1[1] > 220 and color1[2] > 160:
-        eolien += 1
-    if color2[0] < 170 and color2[1] > 230 and color2[2] > 230:
-        transport += 1
-    elif color2[0] > 130 and color2[1] > 90 and color2[1] < 230 and color2[2] > 240:
-        poisson += 1
-    elif color2[0] > 130 and color2[1] > 230 and color2[2] < 120:
-        loisir += 1
-    elif color2[0] > 220 and color2[1] > 220 and color2[2] > 160:
-        eolien += 1
-
-    if color3[0] < 170 and color3[1] > 230 and color3[2] > 230:
-        transport += 1
-    elif color3[0] > 130 and color3[1] > 90 and color3[1] < 230 and color3[2] > 240:
-        poisson += 1
-    elif color3[0] > 130 and color3[1] > 230 and color3[2] < 120:
-        loisir += 1
-    elif color3[0] > 220 and color3[1] > 220 and color3[2] > 160:
-        eolien += 1
     return ({
         "peche": poisson,
         "eolien": eolien,
