@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Redirect } from 'react-router'
 
 import Introduction from './Introduction'
 import Distribution from './Distribution'
 import Placement from './Placement'
 import Element from './Element'
+import { videoLength, } from '../../constants'
 
 import Timer from '../Timer'
 
@@ -17,15 +19,24 @@ import '../../styles/right-screen-mj.css';
 import '../../styles/App.css';
 
 class Phase1 extends Component {
+  state = {}
     constructor(props) {
         super(props);
-        this.state = {
-            phase: 1
-        };
-
     }
 
+  transitionToPhase2 = () => {
+    axios.post('http://localhost:3005/api/videoId', { videoId: 2})
+    setTimeout(() => {
+      this.setState({ redirectToPhase2: true })
+    }, videoLength[2] * 1000)
+  }
+
+
     render() {
+      if (this.state.redirectToPhase2) {
+        console.log('redirecting to phase 2')
+        return <Redirect to="/phase2/remplacement"/>
+      }
         return (
             <div id="mainScreen">
                 <Link to="/" className="close-button">
@@ -48,7 +59,7 @@ class Phase1 extends Component {
                 </div>
                 <div className="right">
                     <div className="timer-wrapper">
-                        <Timer phase={{ phase: this.state.phase }}/>
+                        <Timer phase={{ phase: 1 }} onEnd={this.transitionToPhase2}/>
                     </div>
                     <div className="buttons-wrapper">
                         <Link className="rose-button" to="/Phase2/Remplacement">Aller à la phase 2</Link>
