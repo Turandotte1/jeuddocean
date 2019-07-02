@@ -137,13 +137,15 @@ class Screen extends Component {
         this.getCalcul();
         this.getImage();
         this.getVideo();
-        this.getTime()
+        this.getTime();
+        this.getZoneReglementes();
+        this.getZoneInterdit()
       }, 1000)
       this.setState({ interval })
-      this.getZoneReglementes();
-      this.getZoneInterdit();
       this.getAlea();
     }
+
+
 
   componentWillUnmount() {
     clearInterval(this.state.interval)

@@ -16,6 +16,7 @@ let time = {
 }
 
 let alea = {
+
     "id": 0,
     "peche": 1,
     "transport": 1,
