@@ -17,8 +17,37 @@ def distance_between(p1, p2):
     # fonction qui permet de retrouver la couleur la plus presente dans une zone donnee retour en BGR peut etre faudra
     # t'il convertir cette valeur en "Couleur" texte afin de faciliter son identification par la suite
 def unique_count_app(a):
-    colors, count = np.unique(a.reshape(-1,a.shape[-1]), axis=0, return_counts=True)
-    return colors[count.argmax()]
+    value1 = 0
+    value2 = 0
+    value3 = 0
+    value4 = 0
+    default = -30
+    for i in a:
+        for color1 in i:
+            if color1[0] < 170 and color1[1] > 210 and color1[2] > 210:
+                value1 += 1 + value1 // 100
+            elif color1[0] > 220 and color1[1] > 220 and color1[2] > 160:
+                value4 += 1 + value4 // 100
+            elif color1[0] > 120 and color1[1] > 80 and color1[1] < 230 and color1[2] > 240:
+                value2 += 1 + value2 // 100
+            elif color1[0] > 80 and color1[1] > 230 and color1[2] < 120:
+                value3 += 1 + value3 // 100
+            else:
+                default += 1
+    
+    print(str(value1) + "   " + str(value2) + "   "+ str(value3) + "   "+ str(value4) + "   " + str(default))
+    if (value1 * 2 > default):
+        return ([150, 220, 220])
+    if value4 * 2> default:
+        return ([255, 255, 255])
+    if value2 * 2 > default:
+        return ([130, 100, 250])
+    if value3 * 2 > default :
+        return ([90, 240, 110])
+    return ([0, 0, 0])
+
+    # cette fonction permet de redefinir une zone d'interet a partir des points qui ont ete determines comme appartenant
+    # au plus grand carre dans l'image et de "redresser" l'image afin d'obtenir une carte qui soit exploitable facilement.
 
     # cette fonction permet de redefinir une zone d'interet a partir des points qui ont ete determines comme appartenant
     # au plus grand carre dans l'image et de "redresser" l'image afin d'obtenir une carte qui soit exploitable facilement.
@@ -60,31 +89,77 @@ def pre_process_image(img):
     return proc
 
 def create_json (color1, color2, color3):
-    colors = {"Red": (243, 54, 191), "Yellow": (0, 255, 255), "Green": (80, 255, 149), "White": (255, 255, 255), "Blue": (255, 0, 0)}
     poisson = 0
     eolien = 0
     loisir = 0
     transport = 0
 
-    values =[]
-    diff = [[color_difference(color1, target_value), target_name] for target_name, target_value in colors.items()]
-    diff.sort()
-    values.append(diff[0][1])
-    diff2 = [[color_difference(color2, target_value), target_name] for target_name, target_value in colors.items()]
-    diff2.sort()
-    values.append(diff2[0][1])
-    diff3 = [[color_difference(color3, target_value), target_name] for target_name, target_value in colors.items()]
-    diff3.sort()
-    values.append(diff3[0][1])
-    for value in values:
-        if value == "Red":
-            poisson += 1
-        elif value == "White":
-            eolien += 1
-        elif value == "Green":
-            loisir += 1
-        elif value == "Yellow":
-            transport += 1
+    if color1[0] < 170 and color1[1] > 210 and color1[2] > 210:
+        transport += 1
+    elif color1[0] > 120 and color1[1] > 80 and color1[1] < 230 and color1[2] > 240:
+        poisson += 1
+    elif color1[0] > 80 and color1[1] > 230 and color1[2] < 120:
+        loisir += 1
+    elif color1[0] > 220 and color1[1] > 220 and color1[2] > 160:
+        eolien += 1
+
+    if color2[0] < 170 and color2[1] > 210 and color2[2] > 210:
+        transport += 1
+    elif color2[0] > 120 and color2[1] > 80 and color2[1] < 230 and color2[2] > 240:
+        poisson += 1
+    elif color2[0] > 80 and color2[1] > 230 and color2[2] < 120:
+        loisir += 1
+    elif color2[0] > 220 and color2[1] > 220 and color2[2] > 160:
+        eolien += 1
+
+    if color3[0] < 170 and color3[1] > 210 and color3[2] > 210:
+        transport += 1
+    elif color3[0] > 120 and color3[1] > 80 and color3[1] < 230 and color3[2] > 240:
+        poisson += 1
+    elif color3[0] > 80 and color3[1] > 230 and color3[2] < 120:
+        loisir += 1
+    elif color3[0] > 220 and color3[1] > 220 and color3[2] > 160:
+        eolien += 1
+    return ({
+        "peche": poisson,
+        "eolien": eolien,
+        "loisir": loisir,
+        "transport": transport
+    })
+
+
+def create_json_alexis(color1, color2, color3):
+    poisson = 0
+    eolien = 0
+    loisir = 0
+    transport = 0
+
+    if color1[0] < 170 and color1[1] > 210 and color1[2] > 210:
+        transport += 1
+    elif color1[0] > 120 and color1[1] > 80 and color1[1] < 230 and color1[2] > 240:
+        poisson += 1
+    elif color1[0] > 80 and color1[1] > 230 and color1[2] < 120:
+        loisir += 1
+    elif color1[0] > 220 and color1[1] > 220 and color1[2] > 160:
+        eolien += 1
+
+    if color2[0] < 170 and color2[1] > 210 and color2[2] > 210:
+        transport += 1
+    elif color2[0] > 120 and color2[1] > 80 and color2[1] < 230 and color2[2] > 240:
+        poisson += 1
+    elif color2[0] > 80 and color2[1] > 230 and color2[2] < 120:
+        loisir += 1
+    elif color2[0] > 220 and color2[1] > 220 and color2[2] > 160:
+        eolien += 1
+
+    if color3[0] < 170 and color3[1] > 210 and color3[2] > 210:
+        transport += 1
+    elif color3[0] > 120 and color3[1] > 80 and color3[1] < 230 and color3[2] > 240:
+        poisson += 1
+    elif color3[0] > 80 and color3[1] > 230 and color3[2] < 120:
+        loisir += 1
+    elif color3[0] > 220 and color3[1] > 220 and color3[2] > 160:
+        eolien += 1
     return ({
         "peche": poisson,
         "eolien": eolien,
@@ -93,15 +168,20 @@ def create_json (color1, color2, color3):
     })
 
 def gridparse():
-    #cv2.VideoCapture()
-    clean_img = cv2.imread('map.jpg')
-    print(clean_img)
     while(1):
+        cam = cv2.VideoCapture(0)
+        ret = True
+        ret, clean_img = cam.read()
+        cv2.imwrite('input.png', clean_img)
+
+        if not ret:
+            print("probleme avec la camera on dirait")
+            break
         img = cv2.cvtColor(clean_img, cv2.COLOR_RGB2GRAY)
         processed = pre_process_image(img)
         corners = find_corners_of_largest_polygon(processed)
         cropped = crop_and_warp(clean_img, corners)
-        # cv2.imwrite('hope.jpg', cropped)
+        cv2.imwrite('hope.jpg', cropped)
         # calculs pour determiner la position des cercles par rapport a la taille du carre redessine
 
         size = cropped.shape[0]
@@ -121,7 +201,8 @@ def gridparse():
                 color1 = unique_count_app(cropped[height_start[0] + valx : height_start[0] + valx + thick, width_start[0] + valy :width_start[0] + valy + thick])
                 color2 = unique_count_app(cropped[height_start[1] + valx : height_start[1] + valx + thick, width_start[1] + valy :width_start[1] + valy + thick])
                 color3 = unique_count_app(cropped[height_start[1] + valx : height_start[1] + valx + thick, width_start[2] + valy :width_start[2] + valy + thick])
-                dic = {cell:create_json(color1, color2, color3)}
+
+                dic = {cell:create_json_alexis(color1, color2, color3)}
                 request.update(dic)
                 cell += 1
                 print(cell)
@@ -129,7 +210,9 @@ def gridparse():
         url = "http://localhost:3005/api/get-image"
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
         requests.post(url, json.dumps(request, sort_keys=True, indent=4), headers=headers)
+        print(json.dumps(request, sort_keys=True, indent=4))
         time.sleep(5)
+    cam.release()
 
 
 if __name__ == '__main__':
