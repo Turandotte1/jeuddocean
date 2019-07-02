@@ -184,7 +184,7 @@ export default function Grid(props) {
                 </div>
                 <div className="plateau-item">
                     <img src={props.eolien.includes("29") ?  pionEolien  : null} alt=""/>
-                    <img src={props.peche.includes("29") ?  pionPeche  : null} alt=""/>
+                    <img src={props.peche.includes("29") ? pionPeche : null} alt=""/>
                     <img src={props.loisir.includes("29") ? pionLoisir : null} alt=""/>
                     <img src={props.transport.includes("29") ? pionTransport : null} alt=""/>
                 </div>
@@ -215,8 +215,8 @@ export default function Grid(props) {
                     <img src={props.transport.includes("25") ? pionTransport : null} alt=""/>
                 </div>
                 <div class="plateau-item six">
-                    <img src={props.eolien.includes("24") ?  pionEolien  : null} alt=""/>
-                    <img src={props.peche.includes("24") ?  pionPeche  : null} alt=""/>
+                    <img src={props.eolien.includes("24") ? pionEolien  : null} alt=""/>
+                    <img src={props.peche.includes("24") ? pionPeche  : null} alt=""/>
                     <img src={props.loisir.includes("24") ? pionLoisir : null} alt=""/>
                     <img src={props.transport.includes("24") ? pionTransport : null} alt=""/>
                 </div>

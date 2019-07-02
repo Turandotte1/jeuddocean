@@ -142,6 +142,10 @@ class Screen extends Component {
 
   componentWillUnmount() {
     clearInterval(this.state.interval)
+    this.setState({ peche: [] })
+    this.setState({ eolien: [] })
+    this.setState({ loisir: [] })
+    this.setState({ transport: [] })
     this.setState({ alea : 0})
     this.setState({interdit : []})
     this.setState({reglemente : [] })
@@ -214,6 +218,7 @@ class Screen extends Component {
                               }
                         </div>
                         <div className="jauges-globales">
+                            <div className="dividor"></div>
                             <div className="jauge-global environnement">
                                 <div className="jauge-container">
                                     <div
@@ -269,7 +274,7 @@ class ScreenWrapper extends React.Component {
   componentWillUnmount() {
     clearInterval(this.state.interval)
   }
-  render () { 
+  render () {
     const { videoId } = this.state
     if (videoId) {
       return <Video videoId={videoId} />

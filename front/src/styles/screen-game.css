@@ -163,6 +163,13 @@
     justify-content: center;
 }
 
+.dividor {
+    border-bottom: 2px dotted #FF6F72;
+    position: absolute;
+    width: 25%;
+    top: 75%;
+}
+
 .jauge-container {
     height: 230px;
     width: 38px;
