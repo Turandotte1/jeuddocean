@@ -208,8 +208,10 @@ class Screen extends Component {
                     <div className="right-wrapper">
                         <ElapsedTime phase={phase} timeLeft={timeLeft} />
                         <div className="text-screen">
-                            <h2>Phase 2 :</h2>
-                            <p>Placez vos pions avant la fin du temps imparti !</p>
+                            <h2>Phase {phase} :</h2>
+                            { phase === 1 ? <p>Choisissez vos rôles et placez vos pions sur les cases au plus fort potentiel</p>
+                                : <p>Placez vos pions en tenant compte cette fois des facteurs environnementaux et sociaux</p>
+                              }
                         </div>
                         <div className="jauges-globales">
                             <div className="jauge-global environnement">
