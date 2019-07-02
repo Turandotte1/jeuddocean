@@ -26,7 +26,7 @@ def unique_count_app(a):
         for color1 in i:
             if color1[0] < 170 and color1[1] > 210 and color1[2] > 210:
                 value1 += 1 + value1 // 100
-            elif color1[0] > 220 and color1[1] > 220 and color1[2] > 160:
+            elif color1[0] > 225 and color1[1] > 225 and color1[2] > 160:
                 value4 += 1 + value4 // 100
             elif color1[0] > 120 and color1[1] > 80 and color1[1] < 230 and color1[2] > 240:
                 value2 += 1 + value2 // 100
@@ -38,10 +38,10 @@ def unique_count_app(a):
     print(str(value1) + "   " + str(value2) + "   "+ str(value3) + "   "+ str(value4) + "   " + str(default))
     if (value1 * 2 > default):
         return ([150, 220, 220])
-    if value4 * 2> default:
-        return ([255, 255, 255])
     if value2 * 2 > default:
         return ([130, 100, 250])
+    if value4 * 2> default:
+        return ([255, 255, 255])
     if value3 * 2 > default :
         return ([90, 240, 110])
     return ([0, 0, 0])
