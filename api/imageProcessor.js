@@ -42,7 +42,6 @@ function howMany(data) {
 };
 
 module.exports = app => {
-
         app.post('/api/get-image', (req, res) => {
             plateauReel = req.body
             res.end()

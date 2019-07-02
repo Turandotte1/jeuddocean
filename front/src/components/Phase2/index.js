@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import axios from 'axios'
 import { Redirect } from 'react-router'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
