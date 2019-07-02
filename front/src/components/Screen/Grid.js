@@ -9,8 +9,6 @@ import cotes from '../../images/cotes-plateau.svg';
 
 
 export default function Grid(props) {
-    console.log(props.eolien.includes("8"))
-
     return (
         <div className="plateau">
             <img className="cotes" src={cotes} alt=""/>
