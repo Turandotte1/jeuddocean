@@ -19,7 +19,6 @@ import environnement from '../../images/picto-environnement-blanc.svg';
 import social from '../../images/picto-social-blanc.svg';
 import economique from '../../images/picto-economie-blanc.svg';
 
-
 class Screen extends Component {
     constructor(props) {
 		super(props);
@@ -125,12 +124,16 @@ class Screen extends Component {
   getAlea() {
       axios.get('http://localhost:3005/api/alea')
         .then(res => {
-            if (res.data > 0) {
-                 this.setState({alea : res.data })
-                 this.setState({aleaOpen : true })
+             this.setState({alea : res.data })
+             if (this.state.alea > 0) {
+                    const interval = setInterval(() => {
+                     return (
+                         <div className="aleaWrapper">
+                             <img className="aleaImage" src={this.state.alea+".png"} alt=""/>
+                         </div>
+                     )
+            }, 1000);
             }
-          console.log("my alea is" + this.state.alea);
-          this.setState({aleaOpen : false})
         })
     }
 
@@ -143,30 +146,27 @@ class Screen extends Component {
         this.getZoneReglementes();
         this.getZoneInterdit();
         this.getAlea();
+
     }, 1000)
         this.setState({ interval })
     }
 
-
-
-  componentWillUnmount() {
-    clearInterval(this.state.interval)
-    this.setState({ peche: [] })
-    this.setState({ eolien: [] })
-    this.setState({ loisir: [] })
-    this.setState({ transport: [] })
-    this.setState({ alea : 0})
-    this.setState({interdit : []})
-    this.setState({reglemente : [] })
-    this.setState({aleaOpen : false})
+    componentWillUnmount() {
+        clearInterval(this.state.interval)
+        this.setState({ peche: [] })
+        this.setState({ eolien: [] })
+        this.setState({ loisir: [] })
+        this.setState({ transport: [] })
+        this.setState({ alea : 0})
+        this.setState({interdit : []})
+        this.setState({reglemente : [] })
+        this.setState({aleaOpen : false})
   }
 
 	render() {
     const { timeLeft, phase, isPaused } = this.state
-    if (this.state.alea > 0) {
-        return (
-            <img src={"../../images/aleas/"+this.state.alea+".png"} alt=""/>
-        )
+    if (this.state.aleaOpen == true) {
+
 
     }
         return (

@@ -98,7 +98,6 @@ module.exports = app => {
 
         app.get('/api/alea', (req, res) => {
             let aleaId = 0;
-            console.log("my alea switcher"+aleaSwitcher)
             if (aleaSwitcher == 1) {
                 aleaId = Math.round(Math.random() * 29)
                 aleaSwitcher = 0;
@@ -169,7 +168,7 @@ module.exports = app => {
 
                 answer.vs += (gp + ge + gl + gt) / 2;
 
-                var ce = Math.pow(0.6, n * amp);
+                var ce = Math.pow(0.7, n * amp);
                 answer.er += plateauInfo[i].e * ce;
             }
 /*
