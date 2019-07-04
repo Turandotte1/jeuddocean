@@ -22,9 +22,15 @@ class Phase1 extends Component {
   state = {}
     constructor(props) {
         super(props);
+      this.transitionToPhase2 = this.transitionToPhase2.bind(this)
     }
 
   transitionToPhase2 = () => {
+    if (this.state.calledOnce) {
+      return 
+    }
+    this.setState({ calledOnce: true, })
+    console.log('transitionToPhase2')
     axios.post('http://localhost:3005/api/videoId', { videoId: 2})
     setTimeout(() => {
       this.setState({ redirectToPhase2: true })
@@ -62,7 +68,7 @@ class Phase1 extends Component {
                         <Timer phase={{ phase: 1 }} onEnd={this.transitionToPhase2}/>
                     </div>
                     <div className="buttons-wrapper">
-                        <Link className="rose-button" to="/Phase2/Remplacement">Aller à la phase 2</Link>
+                      <button className="rose-button" onClick = {this.transitionToPhase2}>Aller à la phase 2</button>
                     </div>
                 </div>
             </div>
