@@ -48,6 +48,12 @@ class Screen extends Component {
     getImage() {
         axios.get('http://localhost:3005/api/send-image')
         .then(res => {
+            this.setState({
+                peche: [],
+                eolien: [],
+                loisir: [],
+                transport: []
+            });
             let map = res.data;
             let x = 1;
             for (x in map) {
@@ -119,9 +125,12 @@ class Screen extends Component {
   getAlea() {
       axios.get('http://localhost:3005/api/alea')
         .then(res => {
-          const alea = res.data
-          this.setState({alea : alea })
-          this.setState({aleaOpen : true })
+            if (res.data > 0) {
+                 this.setState({alea : res.data })
+                 this.setState({aleaOpen : true })
+            }
+          console.log("my alea is" + this.state.alea);
+          this.setState({aleaOpen : false})
         })
     }
 
@@ -132,10 +141,10 @@ class Screen extends Component {
         this.getImage();
         this.getTime();
         this.getZoneReglementes();
-        this.getZoneInterdit()
-      }, 1000)
-      this.setState({ interval })
-      this.getAlea();
+        this.getZoneInterdit();
+        this.getAlea();
+    }, 1000)
+        this.setState({ interval })
     }
 
 
@@ -154,6 +163,12 @@ class Screen extends Component {
 
 	render() {
     const { timeLeft, phase, isPaused } = this.state
+    if (this.state.alea > 0) {
+        return (
+            <img src={"../../images/aleas/"+this.state.alea+".png"} alt=""/>
+        )
+
+    }
         return (
             <div className="screen-component">
                 <div className="left-screen">

@@ -10,7 +10,6 @@ module.exports = app => {
     res.end()
   })
   app.get('/api/videoId', (req, res) => {
-    console.log(`getting video id: ${videoId}`)
     res.json({ videoId })
   })
   app.get('/video/:id', function(req, res) {
@@ -22,7 +21,7 @@ module.exports = app => {
     if (range) {
       const parts = range.replace(/bytes=/, "").split("-")
       const start = parseInt(parts[0], 10)
-      const end = parts[1] 
+      const end = parts[1]
         ? parseInt(parts[1], 10)
         : fileSize-1
       const chunksize = (end-start)+1

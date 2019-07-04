@@ -48,42 +48,58 @@ function Placement() {
     </div>
   );
 }
+class Alea extends React.Component {
+    constructor() {
+        super();
+        this.onClick = this.handleClick.bind(this);
+      }
 
-function Alea() {
-  return (
-    <div>
-        <div>
-            <p className="text-subtitle">Aléa surgit</p>
-            <div className="weird-thing"></div>
-            <div className="main-text">
-                <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
-                    [Attention ! On ne bouge plus !
-                        J’attire votre attention sur l’aléa qui vient d’apparaître sur l’écran :
-                        (lecture à voix haute de l’aléa)
-                        Cela signifie que certaines cases sont impactées…
-                        [placement des masques et
-                        explication en fonction des effets
-                        (perte de pions ou mise à 0 de certaines activités).
-                        Il relance la recherche de solution après
-                        avoir constaté avec les joueurs les conséquences sur les jauges.
-                        Laisser la partie se dérouler.]
-                </p>
-                <button onClick={axios.post('http://localhost:3005/api/alea', {} )} className="blue-button">
-                        Lancer aléa
-                </button>
-            </div>
-            <div className="links">
-                <Link to="/phase2/remplacement" className="lien-text-prev">
-                    <FontAwesomeIcon icon={ faArrowCircleLeft } size="3x" />
-                </Link>
-                <Link to="/phase2/placement" className="lien-text-suiv">
-                    <FontAwesomeIcon icon={ faArrowCircleRight } size="3x" />
-                </Link>
-            </div>
-        </div>
-    </div>
-  );
+      handleClick(event) {
+          axios.post("http://localhost:3005/api/alea", {})
+              .then((response) => {
+                    console.log("sucessfuly sent");
+               })
+              .catch((err) => {
+                   console.log("oh no :()");
+               });
+    }
+    render() {
+        return (
+          <div>
+              <div>
+                  <p className="text-subtitle">Aléa surgit</p>
+                  <div className="weird-thing"></div>
+                  <div className="main-text">
+                      <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
+                          [Attention ! On ne bouge plus !
+                              J’attire votre attention sur l’aléa qui vient d’apparaître sur l’écran :
+                              (lecture à voix haute de l’aléa)
+                              Cela signifie que certaines cases sont impactées…
+                              [placement des masques et
+                              explication en fonction des effets
+                              (perte de pions ou mise à 0 de certaines activités).
+                              Il relance la recherche de solution après
+                              avoir constaté avec les joueurs les conséquences sur les jauges.
+                              Laisser la partie se dérouler.]
+                      </p>
+                      <button onClick={this.onClick} className="blue-button">
+                              Lancer aléa
+                      </button>
+                  </div>
+                  <div className="links">
+                      <Link to="/phase2/remplacement" className="lien-text-prev">
+                          <FontAwesomeIcon icon={ faArrowCircleLeft } size="3x" />
+                      </Link>
+                      <Link to="/phase2/placement" className="lien-text-suiv">
+                          <FontAwesomeIcon icon={ faArrowCircleRight } size="3x" />
+                      </Link>
+                  </div>
+              </div>
+          </div>
+        );
+      }
 }
+
 
 function Remplacement() {
   return (

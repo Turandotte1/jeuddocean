@@ -16,7 +16,6 @@ let time = {
 }
 
 let alea = {
-
     "id": 0,
     "peche": 1,
     "transport": 1,
@@ -99,8 +98,10 @@ module.exports = app => {
 
         app.get('/api/alea', (req, res) => {
             let aleaId = 0;
+            console.log("my alea switcher"+aleaSwitcher)
             if (aleaSwitcher == 1) {
                 aleaId = Math.round(Math.random() * 29)
+                aleaSwitcher = 0;
             }
             res.json(aleaId)
         })
