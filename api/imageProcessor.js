@@ -3,6 +3,7 @@ const plateauInfo = require('../staticData/plateauInfo.json')
 const aleaInfo = require('../staticData/alea.json')
 
 let plateauReel = require('../staticData/plateauReel.json')
+let lastData = require('./lastData.json')
 
 let infoMj = {
     timeLeft: 390,
@@ -26,9 +27,20 @@ let alea = {
 let aleaSwitcher = 0;
 let interditSwitcher = 0;
 let reglementeSwitcher = 0;
+let pasDeTempsSwitcher = 0;
 
 let chosen = []
 let none = []
+
+let answer = {
+    vp: 0,
+    ve: 0,
+    vl: 0,
+    vt: 0,
+    vg: 0,
+    vs: 0,
+    er: 0,
+};
 
 function howMany(data) {
     let nb = 0;
@@ -99,14 +111,14 @@ module.exports = app => {
         app.get('/api/alea', (req, res) => {
             let aleaId = 0;
             if (aleaSwitcher == 1) {
-                aleaId = Math.round(Math.random() * 29)
+                aleaId = Math.round(Math.random() * 36)
                 aleaSwitcher = 0;
             }
             res.json(aleaId)
         })
 
         app.get('/api/calcul', (req, res) => {
-            let answer = {
+            answer = {
                 vp: 0,
                 ve: 0,
                 vl: 0,
@@ -120,7 +132,7 @@ module.exports = app => {
 
                 let amp = 1
                 let n = howMany(plateauReel[i]);
-                let cc = Math.pow(0.7, (n - 1));
+                let cc = Math.pow(0.9, (n - 1));
 
                 if (chosen.includes(i)) {
                     amp = 0.5
@@ -155,10 +167,10 @@ module.exports = app => {
                 let vt = plateauInfo[i].pt * plateauReel[i].transport * cc * aleaEolien * amp;
                 let vg = vp + ve + vl + vt;
 
-                answer.vp += vp;
-                answer.ve += ve;
-                answer.vl += vl;
-                answer.vt += vt;
+                answer.vp += vp * 4;
+                answer.ve += ve * 4;
+                answer.vl += vl * 4;
+                answer.vt += vt * 4;
                 answer.vg += vg;
 
                 var gp = 3 * vp;
@@ -168,73 +180,67 @@ module.exports = app => {
 
                 answer.vs += (gp + ge + gl + gt) / 2;
 
-                var ce = Math.pow(0.7, n * amp);
+                var ce = Math.pow(0.9, n * amp);
                 answer.er += plateauInfo[i].e * ce;
             }
-/*
-        fs.writeFile('./api/lastData.json', JSON.stringify(answer), 'utf8', function readFileCallback(err, data) {
-            if (err){
-                console.log(err);
-            } else {
-                console.log("json ok")
-            }
-        });
-*/
         res.json(answer);
     })
 
+    app.post('/api/pas-de-temps', (req, res) => {
+        pasDeTempsSwitcher = 1;
+        res.end()
+    })
 
     app.get('/api/pas-de-temps', (req, res) => {
-        let today = Date.now();
-        let year = new Date().getFullYear();
-
-        let pasDeTemps = {
-            "1": {
-                year: year + 2
-            },
-            "2": {
-                year: year + 4
-            },
-            "3": {
-                year: year + 6
-            },
-            "4": {
-                year: year + 8
-            },
-            "5": {
-                year: year + 10
-            },
-            "6": {
-                year: year + 12
-            },
-            "7": {
-                year: year + 14
-            },
-            "8": {
-                year: year + 16
-            },
-            "9": {
-                year: year + 18
-            },
-            "10": {
-                year: year + 20
-            },
-            "11": {
-                year: year + 22
-            },
-            "12": {
-                year: year + 24
-            },
-            "13": {
-                year: year + 26
-            },
-            "14": {
-                year: year + 28
-            },
-            "15": {
-                year: year + 30
+        if (pasDeTempsSwitcher == 1) {
+            let today = Date.now();
+            let year = new Date().getFullYear();
+            let pasDeTemps = {
+                "0": {
+                    year: year,
+                    vg: answer.vg,
+                    vs: answer.vs,
+                    er: answer.er
+                },
+                "1": {
+                    year: year + 2,
+                    vg: answer.vg,
+                    vs: answer.vs,
+                    er: answer.er
+                },
+                "2": {
+                    year: year + 4,
+                    vg: answer.vg,
+                    vs: answer.vs,
+                    er: answer.er
+                },
+                "3": {
+                    year: year + 6,
+                    vg: answer.vg,
+                    vs: answer.vs,
+                    er: answer.er
+                },
+                "4": {
+                    year: year + 8,
+                    vg: answer.vg,
+                    vs: answer.vs,
+                    er: answer.er
+                }
             }
+
+                let vg = 10;
+                let vs = 10;
+                let er = 10;
+
+                for (let i = 1; i < 16; i++) {
+                    let caseImpacte = Math.round(Math.random() * 28)
+                    pasDeTemps[i].vg = vg - (plateauReel[caseImpacte].peche + plateauReel[caseImpacte].eolien + plateauReel[caseImpacte].loisir + plateauReel[caseImpacte].transport)
+                    pasDeTemps[i].vs = vs - (plateauReel[caseImpacte].peche + plateauReel[caseImpacte].eolien + plateauReel[caseImpacte].loisir + plateauReel[caseImpacte].transport)
+                    er -= Math.random() * 2
+                    pasDeTemps[i].er = er;
+                }
+            res.json(pasDeTemps)
         }
-        res.json(pasDeTemps)
+        res.json(answer)
     })
-};
+}

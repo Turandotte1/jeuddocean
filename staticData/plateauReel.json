@@ -36,21 +36,21 @@
         "transport": 1
     },
     "7": {
-        "peche": 1,
+        "peche": 0,
         "eolien": 0,
-        "loisir": 1,
+        "loisir": 0,
         "transport": 0
     },
     "8": {
         "peche": 0,
-        "eolien": 1,
-        "loisir": 0,
-        "transport": 1
-    },
-    "9": {
-        "peche": 0,
         "eolien": 0,
         "loisir": 0,
+        "transport": 0
+    },
+    "9": {
+        "peche": 1,
+        "eolien": 1,
+        "loisir": 1,
         "transport": 0
     },
     "10": {
@@ -60,9 +60,9 @@
         "transport": 0
     },
     "11": {
-        "peche": 0,
-        "eolien": 0,
-        "loisir": 0,
+        "peche": 1,
+        "eolien": 1,
+        "loisir": 1,
         "transport": 0
     },
     "12": {
@@ -85,7 +85,7 @@
     },
     "15": {
         "peche": 0,
-        "eolien": 0,
+        "eolien": 1,
         "loisir": 0,
         "transport": 0
     },
@@ -104,11 +104,11 @@
     "18": {
         "peche": 0,
         "eolien": 0,
-        "loisir": 0,
+        "loisir": 1,
         "transport": 0
     },
     "19": {
-        "peche": 0,
+        "peche": 1,
         "eolien": 0,
         "loisir": 0,
         "transport": 0
@@ -140,7 +140,7 @@
     "24": {
         "peche": 1,
         "eolien": 0,
-        "loisir": 0,
+        "loisir": 1,
         "transport": 0
     },
     "25": {

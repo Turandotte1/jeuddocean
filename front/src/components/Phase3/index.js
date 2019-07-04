@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import axios from 'axios';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowCircleRight, faArrowCircleLeft, faTimes } from '@fortawesome/free-solid-svg-icons';
@@ -31,68 +32,85 @@ function Recompense() {
   );
 }
 
-function Projection() {
-  return (
-      <div>
-          <div>
-              <p className="text-subtitle">Validation de la nouvelle configuration</p>
-              <div className="weird-thing"></div>
-              <div className="main-text">
-                  <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
-                  [Suite à l’évolution des jauges,
-                      le MJ débriefe avec ses joueurs
-                      afin de voir s’ils ont réussi à établir
-                      une exploitation raisonnée et durable
-                      (à l’instant T).
-                      Regarder ensemble permet de montrer
-                      aux joueurs leurs erreurs.]
-                  </p>
-                  <p>
-                        Félicitations,
-                        vos jauges sont équilibrées !
-                        [Analyse des jauges à l’instant T]. Mais l’objectif
-                        du développement durable est le long terme…
-                        Voyons si votre configuration résiste
-                        à l’épreuve du temps...
-                  </p>
-                  <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
-                        [ou bien]
-                  </p>
-                  <p>
-                      Dommage, les jauges ne sont pas équilibrées…
-                      [Analyse des jauges à l’instant T]
-                      Constatons ensemble si votre configuration
-                      continue de se dégrader avec l’épreuve du temps...
-                  </p>
-                  <button onClick="" className="blue-button">
-                          Lancer pas de temps
-                  </button>
-                  <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
-                      [Afin de voir si le schéma d’exploitation est
-                          durable, la situation actuelle est mise
-                          à l’épreuve du temps.
-                          Grâce à une projection progressive
-                          (pas de temps de 2 ans)
-                          montrant les évolutions territoriales et
-                          d’exploitation des ressources,
-                          les joueurs sont confrontés à l’évolution
-                          de la situation jusqu’en 2050.
-                          On constate le résultat final.
-                          Une jauge en dessous de 80 et tout
-                          le monde a perdu. Les trois autour de 100,
-                          les joueurs ont gagné collectivement.
-                          Au dessus de 110, c’est la gloire !]
-                  </p>
-              </div>
-              <div className="links">
-                  <Link to="/phase3/recompense" className="lien-text-first">
-                      <FontAwesomeIcon icon={ faArrowCircleRight } size="3x" />
-                  </Link>
-              </div>
-          </div>
-      </div>
-  );
+class Projection extends React.Component {
+    constructor() {
+        super();
+        this.onClick = this.handleClick.bind(this);
+      }
+
+      handleClick(event) {
+          axios.post("http://localhost:3005/api/pas-de-temps", {})
+              .then((response) => {
+                    console.log("sucessfuly sent");
+               })
+              .catch((err) => {
+                   console.log("oh no :()");
+               });
+    }
+    render() {
+        return (
+            <div>
+                <div>
+                    <p className="text-subtitle">Validation de la nouvelle configuration</p>
+                    <div className="weird-thing"></div>
+                    <div className="main-text">
+                        <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
+                        [Suite à l’évolution des jauges,
+                            le MJ débriefe avec ses joueurs
+                            afin de voir s’ils ont réussi à établir
+                            une exploitation raisonnée et durable
+                            (à l’instant T).
+                            Regarder ensemble permet de montrer
+                            aux joueurs leurs erreurs.]
+                        </p>
+                        <p>
+                              Félicitations,
+                              vos jauges sont équilibrées !
+                              [Analyse des jauges à l’instant T]. Mais l’objectif
+                              du développement durable est le long terme…
+                              Voyons si votre configuration résiste
+                              à l’épreuve du temps...
+                        </p>
+                        <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
+                              [ou bien]
+                        </p>
+                        <p>
+                            Dommage, les jauges ne sont pas équilibrées…
+                            [Analyse des jauges à l’instant T]
+                            Constatons ensemble si votre configuration
+                            continue de se dégrader avec l’épreuve du temps...
+                        </p>
+                        <button onClick={this.onClick} className="blue-button">
+                                Lancer pas de temps
+                        </button>
+                        <p style={{color: "#1e1d6b", fontWeight: "900", fontStyle: "italic"}}>
+                            [Afin de voir si le schéma d’exploitation est
+                                durable, la situation actuelle est mise
+                                à l’épreuve du temps.
+                                Grâce à une projection progressive
+                                (pas de temps de 2 ans)
+                                montrant les évolutions territoriales et
+                                d’exploitation des ressources,
+                                les joueurs sont confrontés à l’évolution
+                                de la situation jusqu’en 2050.
+                                On constate le résultat final.
+                                Une jauge en dessous de 80 et tout
+                                le monde a perdu. Les trois autour de 100,
+                                les joueurs ont gagné collectivement.
+                                Au dessus de 110, c’est la gloire !]
+                        </p>
+                    </div>
+                    <div className="links">
+                        <Link to="/phase3/recompense" className="lien-text-first">
+                            <FontAwesomeIcon icon={ faArrowCircleRight } size="3x" />
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
+
 
 const Phase3 = () => {
   return (

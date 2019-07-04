@@ -134,6 +134,13 @@ class Screen extends Component {
         })
     }
 
+    getPasDeTemps() {
+        axios.get('http://localhost:3005/api/pas-de-temps')
+          .then(res => {
+             
+          })
+      }
+
 
 
     componentDidMount() {
