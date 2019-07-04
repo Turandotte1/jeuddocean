@@ -28,7 +28,7 @@ def unique_count_app(a):
                 value1 += 1 + value1 // 100
             elif color1[0] > 225 and color1[1] > 225 and color1[2] > 160:
                 value4 += 1 + value4 // 100
-            elif color1[0] > 100 and color1[1] < 230 and color1[2] > 240:
+            elif color1[0] > 100 and color1[1] < 230 and color1[2] > 210:
                 value2 += 1 + value2 // 100
             elif color1[0] > 80 and color1[1] > 230 and color1[2] < 120:
                 value3 += 1 + value3 // 100
