@@ -124,18 +124,16 @@ class Screen extends Component {
   getAlea() {
       axios.get('http://localhost:3005/api/alea')
         .then(res => {
-             this.setState({alea : res.data })
-             if (this.state.alea > 0) {
-                    const interval = setInterval(() => {
-                     return (
-                         <div className="aleaWrapper">
-                             <img className="aleaImage" src={this.state.alea+".png"} alt=""/>
-                         </div>
-                     )
-            }, 1000);
+            if (res.data > 0) {
+                this.setState({alea : res.data })
+                this.setState({aleaOpen: true})
+                const interval = setTimeout(() => {
+                   this.setState({aleaOpen: false})
+               }, 10000)
             }
         })
     }
+
 
 
     componentDidMount() {
@@ -146,7 +144,6 @@ class Screen extends Component {
         this.getZoneReglementes();
         this.getZoneInterdit();
         this.getAlea();
-
     }, 1000)
         this.setState({ interval })
     }
@@ -164,11 +161,14 @@ class Screen extends Component {
   }
 
 	render() {
-    const { timeLeft, phase, isPaused } = this.state
-    if (this.state.aleaOpen == true) {
-
-
-    }
+        const { timeLeft, phase, isPaused } = this.state
+        if (this.state.aleaOpen == true) {
+                return (
+                    <div className="aleaWrapper">
+                        <img className="aleaImage" src={this.state.alea+".png"} alt=""/>
+                    </div>
+                 )
+        }
         return (
             <div className="screen-component">
                 <div className="left-screen">
